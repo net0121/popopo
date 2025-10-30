@@ -10,8 +10,11 @@ body {
     height: 100vh;
 }
 
+/* Widescreen Canvas: 16:9 aspect ratio (960x540) */
 canvas {
-    background-color: #f0f0f0;
+    width: 960px;
+    height: 540px;
+    background-color: #c7f0ff; /* Light, bright sky background */
     border: 5px solid #333;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
