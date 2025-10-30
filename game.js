@@ -6,7 +6,7 @@ const keys = {};
 const camera = { x: 0 };
 
 const kirby = {
-  x: 50,
+  x: 30, // Start inside pink box
   y: 300,
   width: 40,
   height: 40,
@@ -18,26 +18,22 @@ const kirby = {
   grounded: false
 };
 
-// Level layout based on image
+// Define collision zones manually based on green bars in image
 const platforms = [
-  { x: 0, y: 360, width: 40, height: 40 },
-  { x: 50, y: 320, width: 40, height: 80 },
-  { x: 100, y: 280, width: 40, height: 120 },
-  { x: 150, y: 240, width: 40, height: 160 },
-  { x: 200, y: 200, width: 40, height: 200 },
-  { x: 250, y: 240, width: 40, height: 160 },
-  { x: 300, y: 280, width: 40, height: 120 },
-  { x: 350, y: 320, width: 40, height: 80 },
-  { x: 400, y: 360, width: 40, height: 40 },
-  { x: 450, y: 320, width: 40, height: 80 },
-  { x: 500, y: 280, width: 40, height: 120 },
-  { x: 550, y: 240, width: 40, height: 160 },
-  { x: 600, y: 200, width: 40, height: 200 },
-  { x: 650, y: 240, width: 40, height: 160 },
-  { x: 700, y: 280, width: 40, height: 120 },
-  { x: 750, y: 320, width: 40, height: 80 },
-  { x: 800, y: 360, width: 40, height: 40 }
+  { x: 0, y: 360, width: 20, height: 40 },
+  { x: 20, y: 320, width: 20, height: 80 },
+  { x: 40, y: 280, width: 20, height: 120 },
+  { x: 60, y: 240, width: 20, height: 160 },
+  { x: 80, y: 200, width: 20, height: 200 },
+  { x: 100, y: 240, width: 20, height: 160 },
+  { x: 120, y: 280, width: 20, height: 120 },
+  { x: 140, y: 320, width: 20, height: 80 },
+  { x: 160, y: 360, width: 20, height: 40 },
+  // Add more bars as needed based on image
 ];
+
+const bgImage = new Image();
+bgImage.src = "attachments/8nLiquxqjRjVMKS7wDj2t.png"; // Use actual image path
 
 document.addEventListener("keydown", (e) => {
   keys[e.code] = true;
@@ -95,11 +91,13 @@ function draw() {
   ctx.save();
   ctx.translate(-camera.x, 0);
 
-  // Draw platforms
-  ctx.fillStyle = "green";
-  platforms.forEach((p) => {
-    ctx.fillRect(p.x, p.y, p.width, p.height);
-  });
+  // Draw background image
+  ctx.drawImage(bgImage, 0, 0);
+
+  // Draw platforms (invisible, used for collision)
+  // Uncomment to visualize:
+  // ctx.fillStyle = "rgba(0,255,0,0.3)";
+  // platforms.forEach((p) => ctx.fillRect(p.x, p.y, p.width, p.height));
 
   // Draw Kirby
   ctx.fillStyle = kirby.color;
@@ -116,4 +114,6 @@ function gameLoop() {
   requestAnimationFrame(gameLoop);
 }
 
-gameLoop();
+bgImage.onload = () => {
+  gameLoop();
+};
