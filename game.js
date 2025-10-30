@@ -33,7 +33,7 @@ const platforms = [
 ];
 
 const bgImage = new Image();
-bgImage.src = "attachments/8nLiquxqjRjVMKS7wDj2t.png"; // Use actual image path
+bgImage.src = "ground.png"; // Use actual image path
 
 document.addEventListener("keydown", (e) => {
   keys[e.code] = true;
