@@ -1,0 +1,21 @@
+body {
+    background-color: #87CEEB; /* Sky blue background */
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+}
+
+canvas {
+    background-color: #f0f0f0;
+    border: 5px solid #333;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+h1, p {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
