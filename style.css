@@ -1,24 +1,31 @@
-body {
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Hide scrollbars */
     background-color: #87CEEB; /* Sky blue background */
-    color: #fff;
     font-family: 'Arial', sans-serif;
+}
+
+body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0;
     height: 100vh;
 }
 
-/* Widescreen Canvas: 16:9 aspect ratio (960x540) */
-canvas {
-    width: 960px;
-    height: 540px;
-    background-color: #c7f0ff; /* Light, bright sky background */
-    border: 5px solid #333;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+h1, p {
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    z-index: 10; /* Ensure text is above the canvas if overlapping */
+    margin: 5px 0;
 }
 
-h1, p {
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+canvas {
+    /* Make the canvas element fill the available space */
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    background-color: #c7f0ff; /* Light, bright sky background */
+    /* Remove the fixed border/shadow for true full-screen feel */
 }
